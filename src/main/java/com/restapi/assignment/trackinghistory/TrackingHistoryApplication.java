@@ -15,15 +15,13 @@ public class TrackingHistoryApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TrackingHistoryApplication.class, args);
 	}
-	
+
 	@Bean
-	public GroupedOpenApi coffeeOpenApi() {
+	public GroupedOpenApi OpenApi() {
 		String[] paths = { "/track/**" };
 		return GroupedOpenApi.builder().group("Tracking")
-				.addOpenApiCustomiser(openApi -> openApi.info(new Info().title("Tracking API")))
-				.pathsToMatch(paths)
+				.addOpenApiCustomiser(openApi -> openApi.info(new Info().title("Tracking API"))).pathsToMatch(paths)
 				.build();
 	}
-	
 
 }
